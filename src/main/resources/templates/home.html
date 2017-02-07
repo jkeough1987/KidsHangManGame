@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+</head>
+<body>
+{{^player}}
+<form action="/login" method="post">
+    <input type="text" placeholder="First Name" name="firstName" required/>
+    <input type="text" placeholder="Last Name" name="lastName" required/>
+    <input type="password" placeholder="Password" name="password" required/>
+    <button type="submit">Submit</button>
+</form>
+{{/player}}
+{{#player}}
+Hello {{firstName}} {{lastName}} WINS:{{win}} LOSSES:{{loss}}
+<form action="/logout" method="post">
+    <button type="submit">LogOut</button>
+</form>
+<form action="/instructions" method="get">
+    <button type="submit">Instructions</button>
+</form>
+<br>
+<pre>{{#Word}}
+     {{v1}}{{v2}}
+    {{v3}}{{v4}}{{v5}}{{v6}}
+     {{v7}}{{v8}}
+     {{v9}}{{v10}}
+    {{/Word}}
+</pre>
+{{/player}}
+</body>
+</html>
